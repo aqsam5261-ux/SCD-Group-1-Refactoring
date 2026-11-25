@@ -58,13 +58,20 @@ class GildedRose:
     def _is_expired(self, item):
         return item.sell_in < 0
 
+    def _adjust_quality(self, item, delta):
+        updated_quality = item.quality + delta
+        if updated_quality > MAX_QUALITY:
+            item.quality = MAX_QUALITY
+        elif updated_quality < MIN_QUALITY:
+            item.quality = MIN_QUALITY
+        else:
+            item.quality = updated_quality
+
     def _increase_quality(self, item):
-        if item.quality < MAX_QUALITY:
-            item.quality = item.quality + 1
+        self._adjust_quality(item, 1)
 
     def _decrease_quality(self, item):
-        if item.quality > MIN_QUALITY:
-            item.quality = item.quality - 1
+        self._adjust_quality(item, -1)
 
 
 class Item:
