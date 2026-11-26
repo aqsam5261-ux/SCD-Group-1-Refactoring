@@ -15,4 +15,12 @@ python -m pytest
 - Zainab Shafiq - SWEN241101079
 
 ## Changelog
-(To be added after release)
+## Changelog
+
+### v1.0.0
+- refactor: replace magic numbers and strings with named constants (MAX_QUALITY, MIN_QUALITY, item name constants)
+- refactor: decompose conditional logic in update_quality() into helper methods
+- refactor: extract item-specific update handlers (Aged Brie, Sulfuras, Backstage passes, normal items)
+- refactor: centralize quality bound enforcement in _adjust_quality()
+- docs: add baseline analysis and UML before/after diagrams
+- test: add 12 characterization tests
